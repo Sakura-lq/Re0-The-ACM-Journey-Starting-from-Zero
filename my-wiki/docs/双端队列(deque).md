@@ -70,29 +70,29 @@ deq.back();   // 返回尾部元素引用
 ### 插入与删除
     
 ```cpp
-d3.push_back(4);     // 尾部插入：$O(1)$
-d3.push_front(0);    // 头部插入：$O(1)$
-d3.insert(d3.begin()+2, 99);  // 中间插入：$O(n)$
+d3.push_back(4);     // 尾部插入：O(1)
+d3.push_front(0);    // 头部插入：O(1)
+d3.insert(d3.begin()+2, 99);  // 中间插入：O(n)
 
-d3.pop_back();       // 删除尾部：$O(1)$
-d3.pop_front();      // 删除头部：$O(1)$
-d3.erase(d3.begin()+1);  // 删除指定位置：$O(n)$
+d3.pop_back();       // 删除尾部：O(1)
+d3.pop_front();      // 删除头部：O(1)
+d3.erase(d3.begin()+1);  // 删除指定位置：O(n)
 ```
 
 - 添加元素
 
 ```cpp
-deq.push_back(10);    // 尾部插入：$O(1)$
-deq.push_front(5);    // 头部插入：$O(1)$
-deq.insert(deq.begin()+2, 7);  // 中间插入：$O(n)$
+deq.push_back(10);    // 尾部插入：O(1)
+deq.push_front(5);    // 头部插入：O(1)
+deq.insert(deq.begin()+2, 7);  // 中间插入：O(n)
 ```
 
 - 删除元素
 
 ```cpp
-deq.pop_back();     // 删除尾部元素：$O(1)$
-deq.pop_front();    // 删除头部元素：$O(1)$
-deq.erase(deq.begin()+1);  // 删除指定位置：$O(n)$
+deq.pop_back();     // 删除尾部元素：O(1)
+deq.pop_front();    // 删除头部元素：O(1)
+deq.erase(deq.begin()+1);  // 删除指定位置：O(n)
 ```
 
 - 调整大小

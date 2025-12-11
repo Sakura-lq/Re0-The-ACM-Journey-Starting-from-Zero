@@ -53,6 +53,7 @@ extra_css:
   - stylesheets/main.css
 extra_javascript:
   - javascripts/highlight.js  # 代码高亮（若需自定义颜色，可在css中配置）
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # 导航配置：仅修复语法错误（basic_data_structure.md → 基本数据结构.md），其他完全保留你的原有结构
 nav:
@@ -117,8 +118,7 @@ markdown_extensions:
       toc_depth: 3  # 目录显示深度（匹配3级导航）
   - attr_list:  # 图片/链接属性（如宽度、对齐：![图](url){width=80%}）
   - md_in_html:  # HTML中嵌入Markdown（灵活排版）
-  - pymdownx.arithmatex:  # 新增：LaTeX公式支持（ACM算法推导必备）
-      generic: true  # 支持$$公式$$和\(行内公式\)
-  - codehilite:  # 代码高亮增强（兼容旧版语法）
-      guess_lang: false  # 强制指定代码语言（避免识别错误）
-  - meta:  # 支持文档元数据（如作者/日期）
+  - pymdownx.arithmatex
+  - codehilite:
+      guess_lang: false
+  - meta:

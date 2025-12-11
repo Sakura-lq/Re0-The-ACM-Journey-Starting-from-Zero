@@ -1,42 +1,136 @@
 site_name: Re0-The-ACM-Journey-Starting-from-Zero
-site_url: https://oi-wiki.org
+site_url: https://github.com/Sakura-lq/Re0-The-ACM-Journey-Starting-from-Zero  # 改为实际仓库URL（避免指向OI-Wiki官网）
+site_description: 从零开始的 ACM 学习之路，参考 OI-Wiki 风格整理的算法与数据结构笔记
+site_author: Sakura-lq  # 替换为实际作者名
+repo_url: https://github.com/Sakura-lq/Re0-The-ACM-Journey-Starting-from-Zero
+repo_name: Re0-ACM-Journey
+edit_uri: edit/main/docs/  # 确保 docs 是文档根目录（MkDocs默认）
+
 theme:
   name: material
-  # 1:1 复制 OI-Wiki 官网 palette 配置（导航栏颜色核心）
+  language: zh
   palette:
     - name: 浅色模式
       media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: "white"  # 浅色导航栏白底（和 OI-Wiki 一致）
-      accent: "indigo"  # 用 OI-Wiki 官网 accent 色，避免冲突
+      primary: "white"
+      accent: "indigo"
       toggle:
         icon: material/weather-night
         name: 切换到深色模式
     - name: 深色模式
       media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: "black"  # 深色导航栏纯黑（和 OI-Wiki 一致）
-      accent: "teal"    # 深色模式 accent 色（青绿色）
+      primary: "black"
+      accent: "teal"
       toggle:
         icon: material/weather-sunny
         name: 切换到浅色模式
   features:
-    - navigation.sidebar
-    - navigation.tabs
-    - navigation.top
-    - search.suggest
-    - content.code.copy
-    - content.tabs.link
-    - palette.toggle  # 模式切换按钮（原生功能，不自定义样式）
+    - navigation.sidebar  # 侧边栏（核心导航）
+    - navigation.tabs  # 顶部标签页（适合大类导航）
+    - navigation.top  # 回到顶部按钮
+    # - navigation.path  # 面包屑导航（新增：提升多级页面定位体验）
+    - search.suggest  # 搜索建议
+    - search.highlight  # 搜索结果高亮
+    - content.code.copy  # 代码块复制按钮
+    - content.tabs.link  # 标签页锚点跳转
+    - palette.toggle  # 明暗模式切换
+    - content.tooltips  # 悬浮提示（术语/公式友好）
+    - navigation.expand  # 侧边栏默认展开所有层级（ACM多级分类更方便）
   font:
-    text: "Noto Sans SC"
-    code: "Consolas"
-  no_card: true
-  no_shadow: true
-# 只保留 OI-Wiki 原生样式，删除所有自定义按钮样式
+    text: "Noto Sans SC"  # 中文适配（和OI-Wiki一致）
+    code: "Consolas"  # 代码等宽字体
+  no_card: true  # 扁平化设计（贴合OI-Wiki）
+  no_shadow: true  # 无阴影（保持简洁）
+  # icon:  # 新增：自定义站点图标（提升辨识度）
+  #   logo: material/book-open  # 导航栏Logo（Material原生图标）
+  #   favicon: images/favicon.ico  # 浏览器标签页图标（需在 docs/images 放对应文件）
+
+# 样式优化：确保和OI-Wiki风格一致，避免样式冲突
 extra_css:
   - stylesheets/variables.css
   - stylesheets/main.css
+extra_javascript:
+  - javascripts/highlight.js  # 代码高亮（若需自定义颜色，可在css中配置）
+
+# 导航配置（修正格式错误，优化ACM学习层级）
 nav:
   - 首页: index.md
-  - 总结: 暑假学习总结.md
+  - 学习总结:
+    - 暑假学习总结.md
+  - 数据结构:  # 大类：按ACM常用分类拆分
+    - 基本数据结构概述: basic_data_structure.md  # 新增：概述页（归类基础概念）
+    - 线性结构:  # 细分分类（方便扩展）
+      - 栈.md
+      - 单调栈.md
+      - 队列.md  # 预留扩展（ACM常用）
+      - 链表.md  # 预留扩展
+    - 树形结构:  # 新增：ACM核心数据结构分类
+      - 二叉树基础.md
+      - 线段树.md  # ACM重点
+      - 平衡树（入门）.md  # 预留扩展
+    - 图论基础:  # 新增：图论单独分类
+      - 图的存储与遍历.md
+      - 最短路径.md  # 预留扩展（Dijkstra/Floyd）
+  - 算法基础:
+    - 贪心算法.md
+    - 动态规划:  # 细分DP（ACM高频考点）
+      - 线性DP.md
+      - 区间DP.md
+      - 背包问题.md  # ACM重点（01/完全/多重）
+    - 分治算法.md
+    - 枚举与模拟.md  # 新增：ACM入门必学
+  - 算法进阶:  # 新增：进阶分类（后续扩展）
+    - 字符串算法:
+      - KMP算法.md
+      - Trie树.md  # ACM重点
+    - 数论基础:
+      - 质数与因数分解.md
+      - 同余方程.md  # 预留扩展
+  - 资源链接:
+    - 洛谷板子题单.md
+    - ACM常用工具.md  # 新增：工具汇总（编译器/调试技巧等）
+    - OI-Wiki 官方链接.md  # 新增：关联原版OI-Wiki
+
+# 插件配置：轻量化且贴合ACM文档需求
+plugins:
+  - search:  # 中文搜索优化
+      lang: zh
+      separator: '[\s\-\_\+\，\。\；]+'  # 支持中文标点分词（提升搜索准确率）
+      prebuild_index: true  # 预构建索引（大文档更快）
+  - table-reader:  # 支持外部CSV/TSV表格（适合整理题单/复杂度对比）
+  - mkdocstrings:  # 代码文档自动生成（若包含代码实现，可选）
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_signature_annotations: true
+            show_source: true  # 显示代码源文件（方便查看实现）
+  - git-revision-date-localized:  # 新增：显示文档最后更新时间（提升可信度）
+      type: date
+      format: yyyy-MM-dd
+      locale: zh
+
+# Markdown扩展：增强ACM文档编写能力（公式/图表/代码块）
+markdown_extensions:
+  - admonition:  # 提示框（note/tip/warning/important，OI-Wiki常用）
+  - pymdownx.details:  # 折叠面板（隐藏冗长推导/代码）
+  - pymdownx.superfences:  # 嵌套代码块/图表（支持mermaid流程图）
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:  # 标签页（对比不同解法/实现方式）
+  - tables:  # 表格支持（题单/复杂度对比）
+  - footnotes:  # 脚注（引用文献/补充说明）
+  - toc:  # 目录生成
+      permalink: true  # 目录项锚点（方便分享特定章节）
+      toc_depth: 3  # 目录显示深度（匹配3级导航）
+  - attr_list:  # 图片/链接属性（如宽度、对齐：![图](url){width=80%}）
+  - md_in_html:  # HTML中嵌入Markdown（灵活排版）
+  - pymdownx.arithmatex:  # 新增：LaTeX公式支持（ACM算法推导必备）
+      generic: true  # 支持$$公式$$和\(行内公式\)
+  - codehilite:  # 代码高亮增强（兼容旧版语法）
+      guess_lang: false  # 强制指定代码语言（避免识别错误）
+  - meta:  # 支持文档元数据（如作者/日期）

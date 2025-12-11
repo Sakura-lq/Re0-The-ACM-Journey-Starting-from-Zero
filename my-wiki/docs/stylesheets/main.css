@@ -1,0 +1,33 @@
+/* OI-Wiki 导航栏颜色锁定（浅色模式） */
+.md-header,
+.md-tabs {
+    background-color: #ffffff !important;
+    border-bottom: none !important;
+    /* 去掉虚线边框 */
+}
+
+.md-header__topic,
+.md-tabs__link {
+    color: #333333 !important;
+}
+
+.md-header__button svg {
+    color: #333333 !important;
+}
+
+/* OI-Wiki 导航栏颜色锁定（深色模式） */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+    background-color: #000000 !important;
+    border-bottom: none !important;
+    /* 去掉虚线边框 */
+}
+
+[data-md-color-scheme="slate"] .md-header__topic,
+[data-md-color-scheme="slate"] .md-tabs__link {
+    color: #cccccc !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__button svg {
+    color: #cccccc !important;
+}

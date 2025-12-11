@@ -1,28 +1,42 @@
 site_name: Re0-The-ACM-Journey-Starting-from-Zero
+site_url: https://oi-wiki.org
 theme:
   name: material
+  # 1:1 复制 OI-Wiki 官网 palette 配置（导航栏颜色核心）
   palette:
-    # 亮色模式
-    - media: "(prefers-color-scheme: light)"
+    - name: 浅色模式
+      media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: "#42B983"  # OI 绿
-      accent: "#FF4500"   # 橙红点缀
+      primary: "white"  # 浅色导航栏白底（和 OI-Wiki 一致）
+      accent: "indigo"  # 用 OI-Wiki 官网 accent 色，避免冲突
       toggle:
         icon: material/weather-night
-        name: 切换到暗色模式
-    # 暗色模式
-    - media: "(prefers-color-scheme: dark)"
+        name: 切换到深色模式
+    - name: 深色模式
+      media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: "#42B983"  # 保持 OI 绿
-      accent: "#FF7700"   # 亮橙更醒目
+      primary: "black"  # 深色导航栏纯黑（和 OI-Wiki 一致）
+      accent: "teal"    # 深色模式 accent 色（青绿色）
       toggle:
         icon: material/weather-sunny
-        name: 切换到亮色模式
+        name: 切换到浅色模式
   features:
+    - navigation.sidebar
     - navigation.tabs
+    - navigation.top
     - search.suggest
     - content.code.copy
-    - navigation.top
+    - content.tabs.link
+    - palette.toggle  # 模式切换按钮（原生功能，不自定义样式）
+  font:
+    text: "Noto Sans SC"
+    code: "Consolas"
+  no_card: true
+  no_shadow: true
+# 只保留 OI-Wiki 原生样式，删除所有自定义按钮样式
+extra_css:
+  - stylesheets/variables.css
+  - stylesheets/main.css
 nav:
   - 首页: index.md
-  - 总结: 暑假学习计划总结.md
+  - 总结: 暑假学习总结.md

@@ -2006,7 +2006,7 @@
 <h2 id="_4">不定长的滑动窗口<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>不定长滑动窗口并没有在题目中具体的长度规定，一般是满足限制条件即为一个窗口的长度，例如：一段连续子串中至少需要包含所有元音字母的最小/最大字串等等，因此在不定长滑动窗口主要可以分为三类问题：求最长子数组，求最短子数组，求满足特定要求的所有子数组个数。</p>
 <h3 id="_5">最长子数组<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>一般在这个问题中，一般满足窗口大小<strong>越短越合法</strong>，并且一般都是以限制长度的最大值的条件，也就是<strong>至少</strong>的问题，因此我们窗口的状态大概是 合法 -&gt; 不合法 -&gt; 合法，如果合法就一直移动右指针 <span class="arithmatex"><span class="MathJax_Preview">right</span><script type="math/tex">right</script></span> 使数组扩大，如果扩大之后使当前窗口不合法，那么就一直移动左指针直到窗口重新变成合法窗口，每次循环都记一次大小 <span class="arithmatex"><span class="MathJax_Preview">(res = res + (right - left + 1))</span><script type="math/tex">(res = res + (right - left + 1))</script></span>。</p>
+<p>一般在这个问题中，一般满足窗口大小<strong>越短越合法</strong>，并且一般都是以限制长度的最大值的条件，也就是<strong>至少</strong>的问题，因此我们窗口的状态大概是 合法 -&gt; 不合法 -&gt; 合法，如果合法就一直移动右指针 <span class="arithmatex"><span class="MathJax_Preview">right</span><script type="math/tex">right</script></span> 使数组扩大，如果扩大之后使当前窗口不合法，那么就一直移动左指针直到窗口重新变成合法窗口，每次循环都记一次大小 <span class="arithmatex"><span class="MathJax_Preview">(mx = max(mx, right - left + 1))</span><script type="math/tex">(mx = max(mx, right - left + 1))</script></span>。</p>
 <h3 id="_6">例题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <details>
     <summary>

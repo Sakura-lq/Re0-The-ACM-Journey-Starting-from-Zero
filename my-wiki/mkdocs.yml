@@ -58,8 +58,6 @@ extra_javascript:
 # 导航配置：仅修复语法错误（basic_data_structure.md → 基本数据结构.md），其他完全保留你的原有结构
 nav:
   - 首页: index.md
-  - 学习总结:
-    - 暑假学习总结.md
   - 算法:
     - 滑动窗口/滑动窗口.md
     - 字符串:
@@ -82,6 +80,11 @@ nav:
     - 图论基础:  # 新增：图论单独分类
       - 图的存储与遍历.md
       - 最短路径.md  # 预留扩展（Dijkstra/Floyd）
+  - 学习总结:
+    - 每日补题总结:
+      - 补题总结/未完成的题目列表.md
+    - 寒暑假学习总结: 
+      - 暑假学习总结.md
   - 资源链接:
     - 资源汇总/洛谷板子题单.md
     - 资源汇总/STL库速查表.md
@@ -103,7 +106,7 @@ plugins:
             show_source: true  # 显示代码源文件（方便查看实现）
   - git-revision-date-localized:  # 新增：显示文档最后更新时间（提升可信度）
       type: date
-      date_format: yyyy-MM-dd  # 修复：原format改为插件支持的date_format
+      format: yyyy-MM-dd 
       locale: zh
 
 # Markdown扩展：完全保留你的原有配置，不做任何改动
